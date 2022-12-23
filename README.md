@@ -11,8 +11,7 @@ To use `react-auth-verification-context`, you will need to wrap your root compon
 ## Features
 
 - Works in **React** and **React Native**
-- `createTheming(defaultTheme)` - factory returns:
-  - `AuthProvider` - component
+  - `AuthProvider` - Provider component
   - `useAuth` - React Hook
     - `login`
     - `logout`
