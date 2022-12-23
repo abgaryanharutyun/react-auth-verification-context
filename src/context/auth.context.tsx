@@ -3,20 +3,24 @@ import React, {
   FC,
   memo,
   ReactNode,
+  useCallback,
   useContext,
   useReducer,
 } from "react";
 import {
+  AuthActions,
   authReducer,
-  IAuthReducer,
+  TAuth,
   TCurrentUser,
 } from "../reducers/auth.reducer";
 
-const AuthStateContext = createContext<TCurrentUser>({
+const AuthStateContext = createContext<TAuth>({
   isLoading: false,
   attributes: null,
+  login: () => {},
+  logout: () => {},
+  restoreToken: () => {},
 });
-const AuthDispatchContext = createContext<(d: IAuthReducer) => void>(() => {});
 
 interface iAuthProviderProps {
   children: ReactNode;
@@ -25,29 +29,36 @@ const AuthProvider: FC<iAuthProviderProps> = memo(({ children }) => {
   const [state, dispatch] = useReducer(authReducer, {
     isLoading: true,
     attributes: null,
-  } as TCurrentUser);
+    isAuthenticated: false,
+  } as TAuth);
+
+  const login = useCallback((user: TCurrentUser) => {
+    dispatch({ type: AuthActions.SignIn, payload: user });
+  }, []);
+
+  const logout = useCallback(() => {
+    dispatch({ type: AuthActions.SignOut, payload: null });
+  }, []);
+
+  const restoreToken = useCallback((user: TCurrentUser) => {
+    dispatch({ type: AuthActions.RestoreToken, payload: user });
+  }, []);
+
   return (
-    <AuthStateContext.Provider value={state}>
-      <AuthDispatchContext.Provider value={dispatch}>
-        {children}
-      </AuthDispatchContext.Provider>
+    <AuthStateContext.Provider
+      value={{ ...state, login, logout, restoreToken }}
+    >
+      {children}
     </AuthStateContext.Provider>
   );
 });
 
-function useAuthState() {
+function useAuth() {
   const context = useContext(AuthStateContext);
   if (context === undefined) {
     throw new Error("useAuthState must be used within a AuthProvider");
   }
   return context;
 }
-const useAuthDispatch = () => {
-  const context = useContext(AuthDispatchContext);
-  if (context === undefined) {
-    throw new Error("useAuthDispatch must be used within a AuthProvider");
-  }
-  return context;
-};
 
-export { AuthProvider, useAuthState, useAuthDispatch };
+export { AuthProvider, useAuth };
