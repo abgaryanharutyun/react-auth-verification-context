@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="react-theme-provider" src="./assets/auth-provider-logo.jpg" >
+  <img alt="react-theme-provider" src="./assets/auth-provider-logo-2.jpg" >
 </p>
 
 ## About
