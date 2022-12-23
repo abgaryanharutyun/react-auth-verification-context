@@ -1,0 +1,42 @@
+{
+  "name": "react-auth-context",
+  "version": "0.0.1",
+  "description": "react-auth-context is a library that provides a way to manage authentication state in a React application. It is implemented using the React context API, which allows you to pass data through the component tree without having to pass props down manually at every level.",
+  "keywords": [
+    "react",
+    "authentication",
+    "context",
+    "auth",
+    "login",
+    "logout",
+    "security",
+    "authorization",
+    "access control",
+    "user management",
+    "user authentication",
+    "user authorization"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abgaryanharutyun/react-auth-context.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abgaryanharutyun/react-auth-context/issues"
+  },
+  "homepage": "https://github.com/abgaryanharutyun/react-auth-context#readme",
+  "devDependencies": {
+    "@types/react": "^18.0.26",
+    "typescript": "^4.9.4"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  }
+}
