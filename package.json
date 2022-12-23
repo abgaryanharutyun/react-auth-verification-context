@@ -1,7 +1,7 @@
 {
-  "name": "react-auth-context",
+  "name": "react-auth-verification-context",
   "version": "0.0.1",
-  "description": "react-auth-context is a library that provides a way to manage authentication state in a React application. It is implemented using the React context API, which allows you to pass data through the component tree without having to pass props down manually at every level.",
+  "description": "react-auth-verification-context is a library that provides a way to manage authentication state in a React application. It is implemented using the React context API, which allows you to pass data through the component tree without having to pass props down manually at every level.",
   "keywords": [
     "react",
     "authentication",
@@ -14,7 +14,8 @@
     "access control",
     "user management",
     "user authentication",
-    "user authorization"
+    "user authorization",
+    "verification"
   ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
