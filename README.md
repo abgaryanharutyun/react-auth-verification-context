@@ -4,9 +4,9 @@
 
 ## About
 
-`react-auth-context` is a library that provides a way to manage authentication state in a React application. It is implemented using the React context API, which allows you to pass data through the component tree without having to pass props down manually at every level.
+`react-auth-verification-context` is a library that provides a way to manage authentication state in a React application. It is implemented using the React context API, which allows you to pass data through the component tree without having to pass props down manually at every level.
 
-To use `react-auth-context`, you will need to wrap your root component with an AuthProvider component, which provides the authentication state and methods for updating it as props to its children. You can then use the useAuth hook to access the authentication state and methods from within any descendant component.
+To use `react-auth-verification-context`, you will need to wrap your root component with an AuthProvider component, which provides the authentication state and methods for updating it as props to its children. You can then use the useAuth hook to access the authentication state and methods from within any descendant component.
 
 ## Features
 
@@ -25,19 +25,19 @@ To use `react-auth-context`, you will need to wrap your root component with an A
 ### Installation
 
 ```sh
-yarn add react-auth-context
+yarn add react-auth-verification-context
 ```
 
 or using npm
 
 ```sh
-npm install react-auth-context --save
+npm install react-auth-verification-context --save
 ```
 
 ### Usage
 
 ```javascript
-import { AuthProvider, useAuth } from "react-auth-context";
+import { AuthProvider, useAuth } from "react-auth-verification-context";
 
 function App() {
   return (
