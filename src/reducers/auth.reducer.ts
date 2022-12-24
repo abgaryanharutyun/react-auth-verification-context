@@ -8,7 +8,7 @@ export enum AuthActions {
 export type TAuth = {
   isLoading: boolean;
   attributes: any;
-  isAuthenticated?: boolean;
+  isAuthenticated: boolean;
   login: (a: any) => void;
   logout: () => void;
   restoreToken: (a: any) => void;

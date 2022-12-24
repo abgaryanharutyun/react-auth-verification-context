@@ -4,6 +4,7 @@ import { AuthActions, authReducer, TAuth, TCurrentUser } from '../reducers/auth.
 const AuthStateContext = createContext<TAuth>({
   isLoading: false,
   attributes: null,
+  isAuthenticated: false,
   login: () => {
     return null;
   },
