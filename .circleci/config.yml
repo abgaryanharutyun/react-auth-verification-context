@@ -19,7 +19,11 @@ defaults: &defaults
   docker:
     - image: cimg/node:19.3.0
 
-version: 2
+version: 2.1
+
+orbs:
+  codecov: codecov/codecov@3.2.4
+
 jobs:
   install-dependencies:
     <<: *defaults
@@ -59,6 +63,10 @@ workflows:
       - tests:
           requires:
             - install-dependencies
+      - upload-to-codecov:
+          jobs:
+            - checkout
+            - codecov/upload
       - build:
           requires:
             - tests
