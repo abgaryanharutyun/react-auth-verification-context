@@ -25,14 +25,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/abgaryanharutyun/react-auth-context.git"
+    "url": "git+https://github.com/abgaryanharutyun/react-auth-verification-context.git"
   },
   "author": "Harutyun Abgaryan <harutyunabgaryan@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/abgaryanharutyun/react-auth-context/issues"
+    "url": "https://github.com/abgaryanharutyun/react-auth-verification-context/issues"
   },
-  "homepage": "https://github.com/abgaryanharutyun/react-auth-context#readme",
+  "homepage": "https://github.com/abgaryanharutyun/react-auth-verification-context#readme",
   "devDependencies": {
     "@types/react": "^18.0.26",
     "typescript": "^4.9.4"
