@@ -27,16 +27,9 @@ jobs:
       - run: npm run lint
       - run: npm run format
       - run: npm run test
+      - codecov/upload
       - store_artifacts:
           path: coverage
-  codecov:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/react-auth-verification-context
-      - run: ls -l
-      - codecov/upload:
-          file: coverage/lcov.info
   build:
     <<: *defaults
     steps:
@@ -51,9 +44,6 @@ workflows:
       - tests:
           requires:
             - install-dependencies
-      - codecov:
-          requires:
-            - tests
       - build:
           requires:
             - tests
