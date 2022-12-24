@@ -2,6 +2,14 @@
   <img alt="react-theme-provider" src="./assets/auth-provider-logo-2.jpg" >
 </p>
 
+---
+
+[![Build Status][build-badge]][build]
+[![Version][version-badge]][package]
+[![ISC License][license-badge]][license]
+
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/abgaryanharutyun/react-auth-verification-context/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/abgaryanharutyun/react-auth-verification-context/tree/master)
+
 ## About
 
 `react-auth-verification-context` is a library that provides a way to manage authentication state in a React application. It is implemented using the React context API, which allows you to pass data through the component tree without having to pass props down manually at every level.
@@ -36,7 +44,7 @@ npm install react-auth-verification-context --save
 ### Usage
 
 ```javascript
-import { AuthProvider, useAuth } from "react-auth-verification-context";
+import { AuthProvider, useAuth } from 'react-auth-verification-context';
 
 function App() {
   return (
@@ -57,7 +65,7 @@ function AppNavigation() {
         const { attributes: userAttr } = user;
         userAttributes = userAttr;
       } catch (e) {
-        console.log("error", e);
+        console.log('error', e);
       }
       restoreToken(userAttributes);
       setLoading(false);
@@ -71,9 +79,7 @@ function AppNavigation() {
       {isAuthenticated ? (
         <button onClick={logout}>Logout</button>
       ) : (
-        <button onClick={() => login({ name: "John Smit", id: "123" })}>
-          Login
-        </button>
+        <button onClick={() => login({ name: 'John Smit', id: '123' })}>Login</button>
       )}
     </div>
   );
