@@ -56,17 +56,16 @@ jobs:
       - run: npm run build
 workflows:
   version: 2
-
+  upload-to-codecov:
+    jobs:
+      - checkout
+      - codecov/upload
   build:
     jobs:
       - install-dependencies
       - tests:
           requires:
             - install-dependencies
-      - upload-to-codecov:
-          jobs:
-            - checkout
-            - codecov/upload
       - build:
           requires:
             - tests
