@@ -1,31 +1,24 @@
-import React, {
-  createContext,
-  FC,
-  memo,
-  ReactNode,
-  useCallback,
-  useContext,
-  useReducer,
-} from "react";
-import {
-  AuthActions,
-  authReducer,
-  TAuth,
-  TCurrentUser,
-} from "../reducers/auth.reducer";
+import React, { createContext, FC, memo, ReactNode, useCallback, useContext, useReducer } from 'react';
+import { AuthActions, authReducer, TAuth, TCurrentUser } from '../reducers/auth.reducer';
 
 const AuthStateContext = createContext<TAuth>({
   isLoading: false,
   attributes: null,
-  login: () => {},
-  logout: () => {},
-  restoreToken: () => {},
+  login: () => {
+    return null;
+  },
+  logout: () => {
+    return null;
+  },
+  restoreToken: () => {
+    return null;
+  },
 });
 
-interface iAuthProviderProps {
+interface IAuthProviderProps {
   children: ReactNode;
 }
-const AuthProvider: FC<iAuthProviderProps> = memo(({ children }) => {
+const AuthProvider: FC<IAuthProviderProps> = memo(({ children }) => {
   const [state, dispatch] = useReducer(authReducer, {
     isLoading: true,
     attributes: null,
@@ -45,18 +38,14 @@ const AuthProvider: FC<iAuthProviderProps> = memo(({ children }) => {
   }, []);
 
   return (
-    <AuthStateContext.Provider
-      value={{ ...state, login, logout, restoreToken }}
-    >
-      {children}
-    </AuthStateContext.Provider>
+    <AuthStateContext.Provider value={{ ...state, login, logout, restoreToken }}>{children}</AuthStateContext.Provider>
   );
 });
 
 function useAuth() {
   const context = useContext(AuthStateContext);
   if (context === undefined) {
-    throw new Error("useAuthState must be used within a AuthProvider");
+    throw new Error('useAuthState must be used within a AuthProvider');
   }
   return context;
 }

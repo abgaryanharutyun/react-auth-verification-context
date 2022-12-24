@@ -46,11 +46,4 @@ const resendVerificationCode = async (email: string) => {
   }
 };
 
-export {
-  signIn,
-  signOut,
-  checkAuth,
-  signUp,
-  confirmSignUp,
-  resendVerificationCode,
-};
+export { signIn, signOut, checkAuth, signUp, confirmSignUp, resendVerificationCode };

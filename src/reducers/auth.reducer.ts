@@ -1,8 +1,8 @@
 export enum AuthActions {
-  RestoreToken = "RESTORE_TOKEN",
-  SignIn = "SIGN_IN",
-  SignOut = "SIGN_OUT",
-  Loading = "LOADING",
+  RestoreToken = 'RESTORE_TOKEN',
+  SignIn = 'SIGN_IN',
+  SignOut = 'SIGN_OUT',
+  Loading = 'LOADING',
 }
 
 export type TAuth = {
@@ -17,7 +17,7 @@ export type TAuth = {
 export type TCurrentUser = any;
 
 export interface IAuthReducer {
-  type: AuthActions | "";
+  type: AuthActions | '';
   payload: any;
 }
 
