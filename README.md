@@ -4,12 +4,19 @@
 
 ---
 
-[![Build Status][build-badge]][build]
-[![Version][version-badge]][package]
-[![ISC License][license-badge]][license]
+<div style='display: flex'>
 
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/abgaryanharutyun/react-auth-verification-context/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/abgaryanharutyun/react-auth-verification-context/tree/master)
 
+<div style="width: 10px"></div>
+
+[![codecov](https://codecov.io/gh/abgaryanharutyun/react-auth-verification-context/branch/master/graph/badge.svg?token=YSQ2HFT892)](https://codecov.io/gh/abgaryanharutyun/react-auth-verification-context)
+
+<div style="width: 10px"></div>
+
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
+
+</div>
 ## About
 
 `react-auth-verification-context` is a library that provides a way to manage authentication state in a React application. It is implemented using the React context API, which allows you to pass data through the component tree without having to pass props down manually at every level.
