@@ -1,26 +1,9 @@
-aliases:
-
-  - &restore-cache
-    keys:
-      - dependencies-{{ checksum "package.json" }}
-      - dependencies-
-
-  - &save-cache
-    key: dependencies-{{ checksum "package.json" }}
-    paths: node_modules
-
-  - &filter-only-master
-    branches:
-      only: master
-
-
 defaults: &defaults
   working_directory: ~/react-auth-verification-context
   docker:
     - image: cimg/node:19.3.0
 
 version: 2.1
-
 orbs:
   codecov: codecov/codecov@3.2.4
 
@@ -31,10 +14,8 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/react-auth-verification-context
-      - restore-cache: *restore-cache
       - run: |
           npm install --ignore-scripts --frozen-lockfile
-      - save-cache: *save-cache
       - persist_to_workspace:
           root: .
           paths: .
@@ -62,7 +43,9 @@ workflows:
       - tests:
           requires:
             - install-dependencies
-      - codecov/upload
+      - codecov/upload:
+          requires:
+            - tests
       - build:
           requires:
             - tests
