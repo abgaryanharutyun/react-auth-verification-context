@@ -62,9 +62,7 @@ workflows:
       - tests:
           requires:
             - install-dependencies
-      - codecov/upload:
-          requires:
-            - tests
+      - codecov/upload
       - build:
           requires:
             - tests
