@@ -27,13 +27,14 @@ jobs:
       - run: npm run lint
       - run: npm run format
       - run: npm run test
+      - store_artifacts:
+          path: coverage
   codecov:
     <<: *defaults
     steps:
       - codecov/upload
       - attach_workspace:
           at: ~/react-auth-verification-context
-
   build:
     <<: *defaults
     steps:
