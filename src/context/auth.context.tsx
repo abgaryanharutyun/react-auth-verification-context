@@ -45,9 +45,7 @@ const AuthProvider: FC<IAuthProviderProps> = memo(({ children }) => {
 
 function useAuth() {
   const context = useContext(AuthStateContext);
-  if (context === undefined) {
-    throw new Error('useAuthState must be used within a AuthProvider');
-  }
+
   return context;
 }
 

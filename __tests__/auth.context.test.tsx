@@ -11,6 +11,7 @@ const mockUserDataRestored = {
 };
 const MockChildComponent = () => {
   const { login, logout, restoreToken, isAuthenticated, attributes } = useAuth();
+  console.log('isAuthenticated', isAuthenticated);
   return (
     <div>
       MockChildComponent
