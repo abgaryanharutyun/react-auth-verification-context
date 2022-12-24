@@ -33,9 +33,7 @@ jobs:
     <<: *defaults
     steps:
       - codecov/upload:
-          file: {{ coverage_report_filepath }}
-      - attach_workspace:
-          at: ~/react-auth-verification-context
+          file: ~/react-auth-verification-context/coverage/lcov.info
   build:
     <<: *defaults
     steps:
