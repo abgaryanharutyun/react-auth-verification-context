@@ -1,0 +1,67 @@
+aliases:
+
+  - &restore-cache
+    keys:
+      - dependencies-{{ checksum "package.json" }}
+      - dependencies-
+
+  - &save-cache
+    key: dependencies-{{ checksum "package.json" }}
+    paths: node_modules
+
+  - &filter-only-master
+    branches:
+      only: master
+
+
+defaults: &defaults
+  working_directory: ~/react-auth-verification-context
+  docker:
+    - image: circleci/node:19
+
+version: 2
+jobs:
+  install-dependencies:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/react-auth-verification-context
+      - restore-cache: *restore-cache
+      - run: |
+          npm install --ignore-scripts --frozen-lockfile
+      - save-cache: *save-cache
+      - persist_to_workspace:
+          root: .
+          paths: .
+  tests:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/react-auth-verification-context
+      - run: npm run lint
+      - run: npm run format
+      - run: npm run test
+      - store_artifacts:
+          path: coverage
+  build:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/react-auth-verification-context
+      - run: npm run build
+workflows:
+  version: 2
+
+  build:
+    jobs:
+      - install-dependencies
+      - tests:
+          requires:
+            - install-dependencies
+      - build:
+          requires:
+            - tests
+      - deploy:
+          requires:
+            - build
