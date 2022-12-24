@@ -32,6 +32,7 @@ jobs:
   codecov:
     <<: *defaults
     steps:
+      - run: ls -l
       - codecov/upload
       - attach_workspace:
           at: ~/react-auth-verification-context
