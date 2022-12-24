@@ -17,7 +17,7 @@ aliases:
 defaults: &defaults
   working_directory: ~/react-auth-verification-context
   docker:
-    - image: circleci/node:19
+    - image: cimg/node:19
 
 version: 2
 jobs:
