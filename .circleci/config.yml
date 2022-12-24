@@ -35,7 +35,8 @@ jobs:
       - attach_workspace:
           at: ~/react-auth-verification-context
       - run: ls -l
-      - codecov/upload
+      - codecov/upload:
+          file: coverage/lcov.info
   build:
     <<: *defaults
     steps:
