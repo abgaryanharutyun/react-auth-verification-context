@@ -29,6 +29,13 @@ jobs:
       - run: npm run test
       - store_artifacts:
           path: coverage
+  codecov:
+    <<: *defaults
+    steps:
+      - codecov/upload:
+          file: {{ coverage_report_filepath }}
+      - attach_workspace:
+          at: ~/react-auth-verification-context
   build:
     <<: *defaults
     steps:
@@ -43,7 +50,7 @@ workflows:
       - tests:
           requires:
             - install-dependencies
-      - codecov/upload:
+      - codecov:
           requires:
             - tests
       - build:
